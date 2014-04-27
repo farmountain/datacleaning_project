@@ -38,3 +38,9 @@ dt <- data.table(xydata)
 finaldata <- dt[, lapply(.SD,mean), by = "Activity,Subject"]
 
 finalmerge <- merge(activitylabel,finaldata,by.x ="Activity",by.y="Activity")
+
+write.table(finalmerge, file = "finalmerge.txt", sep = ",", col.names = colnames(finalmerge))
+finaldata2 <- dt[, lapply(.SD,mean),]
+
+write.table(finaldata2, file = "finaldata2.txt", sep = ",", col.names = colnames(finaldata))
+
